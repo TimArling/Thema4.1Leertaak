@@ -12,17 +12,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class MainActivity extends Activity {
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
+public class MainActivity extends Activity{
     Button turnBTOnButton,visibilityButton,listDevicesButton,turnBTOffButton;
     private BluetoothAdapter btAdapter;
     private Set<BluetoothDevice>pairedDevices;
+    public static final String EXTRA_MESSAGE = "BluetoothDevice";
     ListView lv;
 
     @Override
@@ -44,7 +49,9 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 for(BluetoothDevice btDevice : btAdapter.getBondedDevices()) {
                     if(btDevice.getName().equals(lv.getItemAtPosition(position))) {
-
+                        Intent intent = new Intent(MainActivity.this, BluetoothActivity.class);
+                        intent.putExtra(EXTRA_MESSAGE, btDevice);
+                        startActivity(intent);
                     }
                 }
                 }
