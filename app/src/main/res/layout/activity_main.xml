@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:transitionGroup="true">
+
+    <Button
+        android:id="@+id/turnBTOnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:clickable="true"
+        android:onClick="on"
+        android:text="Turn On" />
+
+    <Button
+        android:id="@+id/visibilityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_toStartOf="@+id/listDevicesButton"
+        android:onClick="visible"
+        android:text="Become Visible" />
+
+    <Button
+        android:id="@+id/listDevicesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:onClick="list"
+        android:text="List devices" />
+
+    <Button
+        android:id="@+id/turnBTOffButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/turnBTOnButton"
+        android:layout_below="@+id/turnBTOnButton"
+        android:onClick="off"
+        android:text="turn off" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/turnBTOffButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/turnBTOffButton"
+        android:layout_below="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paired devices:"
+        android:id="@+id/textView2"
+        android:textSize="25dp"
+        android:layout_below="@+id/turnBTOffButton"
+        android:layout_alignLeft="@+id/listView"
+        android:layout_alignStart="@+id/listView" />
+
+    <Button
+        android:id="@+id/ServerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_alignStart="@+id/visibilityButton"
+        android:onClick="serverButtonListener"
+        android:text="ServerButton" />
+
+</RelativeLayout>
